@@ -1,6 +1,5 @@
 <template>
   <div class="app-container">
-    <div> {{ data }} </div>
     <el-table
       v-loading="listLoading"
       :data="list"
@@ -60,7 +59,6 @@ export default {
   },
   data() {
     return {
-      data: '',
       list: null,
       listLoading: true
     }
@@ -73,7 +71,6 @@ export default {
       this.listLoading = true
       getList().then(response => {
         this.list = response.data.items
-        this.data = response
         this.listLoading = false
       })
     }

@@ -7,10 +7,16 @@
     position: relative;
   }
 
+  .el-scrollbar{
+    .svg-icon {
+      margin-right: 16px;    vertical-align: -0.2em;
+    }
+  }
+
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth !important;
-    background-color: $menuBg;
+    background: $menuBg;
     height: 100%;
     position: fixed;
     font-size: 0px;
@@ -53,9 +59,7 @@
       overflow: hidden;
     }
 
-    .svg-icon {
-      margin-right: 16px;
-    }
+    
 
     .el-menu {
       border: none;
@@ -73,6 +77,7 @@
 
     .is-active>.el-submenu__title {
       color: $subMenuActiveText !important;
+      font-weight: bold;
     }
 
     & .nest-menu .el-submenu>.el-submenu__title,

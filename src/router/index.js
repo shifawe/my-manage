@@ -51,7 +51,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '博客', icon: 'dashboard' }
+      meta: { title: '我的主页', icon: 'index' }
     }]
   },
 
@@ -60,7 +60,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: '代码段', icon: 'example' },
+    meta: { title: '代码段', icon: 'code' },
     children: [
       {
         path: 'table',
