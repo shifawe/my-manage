@@ -154,7 +154,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'https://www.baidu.com',
-        meta: { title: '帮助连接', icon: 'link' }
+        meta: { title: '帮助连接', icon: 'code' }
       }
     ]
   },
