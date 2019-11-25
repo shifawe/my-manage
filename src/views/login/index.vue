@@ -49,7 +49,7 @@
       <el-button :loading="loading" type="primary" style="font-weight:800;width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin"> 登 录 </el-button>
 
       <div class="tips">
-        <span>欢迎登录 用户名：admin  密码：sexone</span>
+        <span>欢迎登录 用户名：admin  密码：shifawei</span>
       </div>
       <div class="logo">
         <svg-icon icon-class="logo-niao" />
@@ -81,7 +81,7 @@ export default {
     return {
       loginForm: {
         username: 'admin',
-        password: '111111'
+        password: 'shifawei'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -171,15 +171,15 @@ $cursor: #fff;
 $bg:#1976d2;
 $dark_gray:#606266;
 $light_gray:#00c8ff;
-
+body{overflow: hidden;}
 .login-container {
   min-height: 100%; width: 100%;
   background-color: $bg; overflow: hidden;
-  background: linear-gradient(145deg,#0d47a1,#42a5f5);
+  background: linear-gradient(145deg,#0d47a1,#42a5f5);// ang:(#0d47a1 #42a5f5)  ,ps :001d26 00c8ff
   &:after{
-    position: absolute; content: '';left:0;bottom:0;width:100%;
-    background: url('../../assets/cloud.png') bottom center no-repeat;height:450px;
-    background-size: 100%;opacity: .7;
+    position: fixed; content: '';left:0;bottom:0;width:100%;
+    background-color:#fff;height:500px;transform: skewY(8deg);
+    background-size: 100%;opacity: .85; transform-origin: 0%;
   }
   
   .login-form {

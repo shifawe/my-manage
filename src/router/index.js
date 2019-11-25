@@ -51,7 +51,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '我的主页', icon: 'index' }
+      meta: { title: '首页', icon: 'index' }
     }]
   },
 
@@ -60,19 +60,19 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: '代码段', icon: 'code' },
+    meta: { title: '数据中心', icon: 'code' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: '列表', icon: 'table' }
+        meta: { title: '数据列表', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: '树形', icon: 'tree' }
+        meta: { title: '图形化展示' , icon: 'tree' }
       }
     ]
   },
@@ -85,7 +85,7 @@ export const constantRoutes = [
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: '表单', icon: 'form' }
+        meta: { title: '数据操作', icon: 'form' }
       }
     ]
   },
@@ -154,7 +154,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'https://www.baidu.com',
-        meta: { title: '帮助连接', icon: 'code' }
+        meta: { title: '帮助连接', icon: 'share' }
       }
     ]
   },
