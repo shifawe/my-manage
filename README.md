@@ -17,7 +17,7 @@ English | [简体中文](./README-zh.md)
 git clone https://github.com/shifawe/my-manage.git
 
 # enter the project directory
-cd vue-admin-template
+cd my-manage
 
 # install dependency
 npm install
