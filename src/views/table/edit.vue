@@ -2,7 +2,7 @@
   <div class="app-container">
     <div class="edit-form">
       <el-form :model="formInline">
-        <el-row :gutter="20">
+        <el-row :gutter="25">
           <el-col :span="8">
             <el-form-item label="作者:">
               <el-input v-model="formInline.user" placeholder="作者"></el-input>
@@ -10,17 +10,19 @@
           </el-col>
           <el-col :span="8">
             <el-form-item label="日期:">
-              <el-date-picker
-                v-model="formInline.date"
-                type="datetime"
-                placeholder="选择日期时间"
-                default-time="12:00:00">
-              </el-date-picker>
+              <div class="block-group">
+                <el-date-picker
+                  v-model="formInline.date"
+                  type="datetime"
+                  placeholder="选择日期时间"
+                  >
+                </el-date-picker>
+              </div> 
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="评分:">
-              <div class="rate-group">
+              <div class="block-group">
                 <el-rate 
                   v-model="formInline.rateVal"
                   :colors="formInline.colors"
@@ -36,7 +38,7 @@
             type="textarea"
             :rows="2"
             placeholder="请输入内容"
-            v-model="textarea">
+            v-model="formInline.textarea">
           </el-input>
         </el-form-item>
         <el-form-item class="btn-group">
@@ -68,11 +70,12 @@ export default {
 <style lang="scss" scope>
 .edit-form{
   background:#fff;padding:10px 20px;
-  .rate-group{
-    width:100%;display:block
+  .block-group{
+    width:100%;display:inline-block;position: relative;
   }
   .btn-group{
     text-align: right;
   }
+  .el-date-editor.el-input{width:100%}
 }
 </style>
