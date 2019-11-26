@@ -66,7 +66,7 @@ export default {
       width: 32px;
       height: 32px;
       font-size: 24px;
-      color:#00c8ff; // #1976d2
+      color:#1976d2; // #1976d2  ps: 00c8ff
       vertical-align: middle;
       margin-right: 5px;
     }
@@ -74,7 +74,7 @@ export default {
     & .sidebar-title {
       display: inline-block;
       margin: 0;
-      color: #00c8ff;
+      color: #1976d2;
       font-weight: 600;
       line-height: 50px;
       font-size: 15px;
