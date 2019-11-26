@@ -170,7 +170,7 @@ $cursor: #fff;
 <style lang="scss" scoped>
 $bg:#1976d2;
 $dark_gray:#606266;
-$light_gray:#00c8ff;
+$light_gray:#1976d2;
 body{overflow: hidden;}
 .login-container {
   min-height: 100%; width: 100%;
@@ -192,7 +192,7 @@ body{overflow: hidden;}
   }
 
   .tips {
-    font-size: 14px; color: #00c8ff; margin-bottom: 10px;
+    font-size: 14px; color: #1976d2; margin-bottom: 10px;
 
     span {
       &:first-of-type {
