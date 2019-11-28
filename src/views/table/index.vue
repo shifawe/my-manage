@@ -9,7 +9,7 @@
 
       <el-table-column width="180px" align="center" label="日期">
         <template slot-scope="scope">
-          <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
+          <span>{{ scope.row.display_time }}</span>
         </template>
       </el-table-column>
 
@@ -44,7 +44,7 @@
       <el-table-column align="center" label="操作" width="120">
         <template slot-scope="scope">
           <router-link :to="'/example/edit/'+ scope.row.id">
-            <el-button type="primary" size="small" icon="el-icon-edit">
+            <el-button type="primary" size="mini" icon="el-icon-edit">
               编辑
             </el-button>
           </router-link>
@@ -52,7 +52,9 @@
       </el-table-column>
     </el-table>
 
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+    <pagination v-show="total>0"
+      :total="total" :page.sync="listQuery.page"
+      :limit.sync="listQuery.limit" @pagination="getList" />
   </div>
 </template>
 
@@ -102,6 +104,9 @@ export default {
 
 <style lang="scss" scoped>
 .link-type{
-  color:#1976d2;
+  color:#1976d2; font-weight: 600;
+  &:hover{
+    color:#369;
+  }
 }
 </style>

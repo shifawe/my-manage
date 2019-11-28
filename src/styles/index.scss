@@ -5,7 +5,7 @@
 @import './sidebar.scss';
 
 /* 改变主题色变量teal */
-$--color-primary: #00c8ff; 
+$--color-primary: #227eda;  //ps  00c8ff
 .el-input__inner, .el-textarea__inner{
   &:active{
     box-shadow: 0 0 4px rgba($--color-primary,.8);

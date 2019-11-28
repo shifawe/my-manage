@@ -7,6 +7,7 @@ module.exports = {
    * @description Whether fix the header
    */
   fixedHeader: true,
+  tagsView: true,
 
   /**
    * @type {boolean} true | false

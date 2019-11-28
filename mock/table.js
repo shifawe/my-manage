@@ -16,7 +16,7 @@ for (let i = 0; i < count; i++) {
     content_short: 'mock data',
     content: baseContent,
     forecast: '@float(0, 100, 2, 2)',
-    importance: '@integer(1, 3)',
+    importance: '@integer(1, 5)',
     'type|1': ['CN', 'US', 'JP', 'EU'],
     'status|1': ['成功', '等待', '删除'],
     display_time: '@datetime',
@@ -55,6 +55,21 @@ export default [
         }
       }
     }
-  }
+  },
+  {
+    url: '/table/detail',
+    type: 'get',
+    response: config => {
+      const { id } = config.query
+      for (const article of List) {
+        if (article.id === +id) {
+          return {
+            code: 20000,
+            data: article
+          }
+        }
+      }
+    }
+  },
 ]
 

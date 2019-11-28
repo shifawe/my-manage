@@ -69,7 +69,7 @@ export const constantRoutes = [
         meta: { title: '数据列表', icon: 'table' },
       },
       {
-        path: 'edit/:id',
+        path: 'edit/:id(\\d+)', // (\\d+) 只有数字匹配路由
         name: 'edit',
         component: () => import('@/views/table/edit'),
         meta: { title: '编辑' },
