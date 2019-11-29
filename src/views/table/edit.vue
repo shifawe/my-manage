@@ -1,11 +1,11 @@
 <template>
   <div class="app-container">
     <div class="edit-form">
-      <el-form :model="formInline">
+      <el-form ref="formInline" :model="formInline" :rules="rules">
         <el-row :gutter="25">
           <el-col :span="8">
-            <el-form-item label="作者:">
-              <el-input v-model="formInline.author" placeholder="作者"></el-input>
+            <el-form-item label="作者:" prop="author">
+              <el-input v-model="formInline.author" placeholder="作者" required></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -32,7 +32,7 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-form-item label="详细内容">
+        <el-form-item label="详细内容" prop="content_short">
           <el-input
             type="textarea"
             :rows="2"
@@ -41,8 +41,11 @@
           </el-input>
         </el-form-item>
         <el-form-item class="btn-group">
-          <el-button type="primary">保存更改</el-button>
-          <el-button>取消</el-button>
+          <el-button type="primary"
+          v-loading="loading"
+          @click="submitForm"
+          >保存更改</el-button>
+          <el-button>存稿</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -54,6 +57,7 @@
 import { fetchArticle } from '@/api/table'
 
 const defaultForm = {
+  status: 'draft', // 状态为草稿还是发布 draft/published
   id: undefined,
   title: '', // 标题
   author: '', // 作者
@@ -65,9 +69,25 @@ const defaultForm = {
 export default {
   name: 'Edit',
   data() {
+    const validateRequire = (rule, value, callback) => {
+       if (value === '') {
+        this.$message({
+          message: rule.field + '为必填项',
+          type: 'error'
+        })
+        callback(new Error(rule.field + '为必填项'))
+      } else {
+        callback()
+      }
+    }
     return {
+      loading: false,
       formInline: Object.assign({}, defaultForm),
-      colors: ['#99A9BF', '#F7BA2A', '#f00']
+      colors: ['#99A9BF', '#F7BA2A', '#f00'],
+      rules: {
+        author: [{ validator: validateRequire , trigger: 'blur'}], // "author" 为 prop 所传必需
+        content_short: [{validator: validateRequire, trigger: 'blur'}]
+      }
     }
   },
   created() {
@@ -78,6 +98,25 @@ export default {
     fatchList(id) {
       fetchArticle(id).then( response => {
         this.formInline = response.data
+      })
+    },
+    submitForm() {
+      this.$refs.formInline.validate(valid => {
+        if (valid) {
+          this.loading = true
+          this.$notify({
+            title: '成功',
+            message: '发布文章成功',
+            type: 'success',
+            duration: 2000
+          })
+          this.postForm.status = 'published'
+          this.loading = false
+  
+        } else {
+          console.log('error')
+          return false
+        }
       })
     }
   }
